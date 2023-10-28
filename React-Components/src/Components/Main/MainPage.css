@@ -1,0 +1,17 @@
+.navbar {
+  background-color: #474849;
+  padding: 10px;
+}
+
+.search {
+  margin: 1rem;
+}
+
+.row {
+  min-height: 80vh;
+  margin: 0 auto;
+}
+
+.col {
+  padding: 10px;
+}
