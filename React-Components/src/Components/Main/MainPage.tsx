@@ -6,25 +6,40 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { Col, Row } from 'react-bootstrap';
 import './MainPage.css';
 
-class MainPage extends Component {
-  render() {
+
+interface IState {
+  films: [];
+  }
+
+class MainPage extends Component <object, IState>{
+  constructor(props: object) {
+    super(props);
+    this.state={
+      films: []
+    }
+  }
+    render() {
     return(
-      <><Navbar
-        className="navbar"
-      >
-        <InputGroup className="mb-3 search">
+      <>
+        
+       <div>
+          <Navbar
+        className="navbar top-section">
+          <InputGroup className="mb-3 search"
+                        >
           <Form.Control
-            placeholder="Search"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2" />
+            placeholder="Search" type="text"/>
           <Button variant="success" id="button-addon2">
-            Button
+            Search
           </Button>
         </InputGroup>
-      </Navbar>
-          <Row className='row'>
+                    
+                </Navbar>
+                <Row className='row'>
             <Col className='col'>1 of 1fffffffffffffffffffffffffffffffffffffff</Col>
-          </Row>
+          </Row> 
+             
+            </div>
         </>
     );
   }

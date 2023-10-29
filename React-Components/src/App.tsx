@@ -1,14 +1,15 @@
 
+import React from 'react';
 import './App.css';
 import MainPage from './Components/Main/MainPage';
 
 function App() {
   
-
   return (
-    <>
-      <MainPage/>
+    <><React.StrictMode> <MainPage/></React.StrictMode>
+     
     </>
+  
   );
 }
 
