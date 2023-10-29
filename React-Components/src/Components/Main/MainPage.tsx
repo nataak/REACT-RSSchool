@@ -50,20 +50,25 @@ class MainPage extends Component<object, IState> {
             <Col className="col">
               <div>
                 <h1>Star Wars Films</h1>
-<div className="cards-container" >{this.state.films.map((film) => (
-                  <Card className="card"
-                    border="success"
-                    style={{ width: '18rem' }}
-                    key={film.episode_id}
-                  >
-                    <Card.Header>{film.title}</Card.Header>
-                    <Card.Body>
-                      <Card.Title>Director: {film.director}</Card.Title>
-                      <Card.Text>Release Date: {film.release_date}</Card.Text>
-                    </Card.Body>
-                  </Card> ))}</div>
-                
-               
+                <div className="cards-container">
+                  {this.state.films.map((film) => (
+                    <Card
+                      className="card"
+                      border="success"
+                      style={{ width: '18rem' }}
+                      key={film.episode_id}
+                    >
+                      <Card.Header>Director: {film.director}</Card.Header>
+                      <Card.Body>
+                        <Card.Title className="card-title_1">
+                          {' '}
+                          {film.title}
+                        </Card.Title>
+                        <Card.Text>Release Date: {film.release_date}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </Col>
           </Row>
