@@ -1,10 +1,9 @@
-
 import { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import './MainPage.css';
 
 interface IState {
@@ -51,15 +50,20 @@ class MainPage extends Component<object, IState> {
             <Col className="col">
               <div>
                 <h1>Star Wars Films</h1>
-                <ul>
-                  {this.state.films.map((film) => (
-                    <li key={film.episode_id}>
-                      <h2>{film.title}</h2>
-                      <p>Director: {film.director}</p>
-                      <p>Release Date: {film.release_date}</p>
-                    </li>
-                  ))}
-                </ul>
+<div className="cards-container" >{this.state.films.map((film) => (
+                  <Card className="card"
+                    border="success"
+                    style={{ width: '18rem' }}
+                    key={film.episode_id}
+                  >
+                    <Card.Header>{film.title}</Card.Header>
+                    <Card.Body>
+                      <Card.Title>Director: {film.director}</Card.Title>
+                      <Card.Text>Release Date: {film.release_date}</Card.Text>
+                    </Card.Body>
+                  </Card> ))}</div>
+                
+               
               </div>
             </Col>
           </Row>
