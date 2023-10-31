@@ -1,9 +1,7 @@
 import { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
+
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { Card, Col, Row } from 'react-bootstrap';
+
 import './MainPage.css';
 
 interface IState {
@@ -61,7 +59,6 @@ class MainPage extends Component<object, IState> {
     this.setState({ hasError: true });
   }
 
-
   throwError = () => {
     throw new Error('This is a test error.');
   };
@@ -81,45 +78,38 @@ class MainPage extends Component<object, IState> {
     return (
       <>
         <div>
-          <Navbar className="navbar top-section">
-            <InputGroup className="mb-3 search">
-              <Form.Control
-                placeholder="Search"
+          <nav className="top-section">
+            <div className="search">
+              <input
                 type="text"
+                placeholder="Search"
                 value={this.state.searchTerm}
                 onChange={this.handleSearchChange}
               />
-              <Button variant="success" id="button-addon2" onClick={this.handleSearch}>
-                Search
-              </Button>
-            </InputGroup>
-          </Navbar>
-          <Row className="row">
-            <Col className="col">
+              <button onClick={this.handleSearch}>Search</button>
+            </div>
+          </nav>
+          <div className="row">
+            <div className="col">
               <div>
                 <h1>Star Wars Films</h1>
-                <Button variant="danger" onClick={this.throwError}>
-                  Throw Error
-                </Button>
+                <button onClick={this.throwError}>Throw Error</button>
                 <div className="cards-container">
                   {this.state.films.map((film) => (
-                    <Card
-                      className="card"
-                      border="success"
-                      style={{ width: '18rem' }}
-                      key={film.episode_id}
-                    >
-                      <Card.Header>Director: {film.director}</Card.Header>
-                      <Card.Body>
-                        <Card.Title className="card-title_1">{film.title}</Card.Title>
-                        <Card.Text>Release Date: {film.release_date}</Card.Text>
-                      </Card.Body>
-                    </Card>
+                    <div className="card" key={film.episode_id}>
+                      <div className="card-header">
+                        Director: {film.director}
+                      </div>
+                      <div className="card-body">
+                        <h2 className="card-title">{film.title}</h2>
+                        <p>Release Date: {film.release_date}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </div>
       </>
     );
